@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/20 15:46:35 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/20 17:00:05 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_stacks
 {
     int         value;
 	int			*content;
-	struct s_list	*next;
+	struct s_stacks	*next;
 }					t_stacks;
 
 void	ft_lstadd_back(t_list **lst, t_list *new);
