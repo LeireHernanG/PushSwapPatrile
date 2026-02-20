@@ -1,13 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_simple.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 11:43:33 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/20 16:50:01 by pmieres-         ###   ########.fr       */
+/*   Created: 2025/11/17 13:25:20 by pmieres-          #+#    #+#             */
+/*   Updated: 2026/01/16 11:58:46 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// HOLA
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+/*
+int	main(void)
+{
+	char	*str =  "hola";
+
+	printf ("%lu", ft_strlen(str));
+	printf ("%lu", strlen(str));
+}*/	
