@@ -6,19 +6,19 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:42:33 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/20 15:38:06 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/20 16:33:34 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	compute_disorder(t_st *stacka)
+float	compute_disorder(t_stack *stacka)
 {
 	int		mistakes;
 	int		total_pairs;
 	int		i;
-	t_st	*nod;
-	t_st	*list;
+	t_stack	*nod;
+	t_stack	*list;
 
 	i = 0;
 	mistakes = 0;
@@ -43,13 +43,14 @@ int	compute_disorder(t_st *stacka)
 
 int	main(void)
 {
-	t_list	*list;
-	int	a;
+	t_stack	*list;
 
-	a = 4;
-	ft_lstadd_back(&list, ft_lstnew(&a));
-	ft_lstadd_back(&list, ft_lstnew(2));
-	ft_lstadd_back(&list, ft_lstnew(3));
-	ft_lstadd_back(&list, ft_lstnew(1));
+	write(1, "5", 1);
+	ft_lstadd_back_st(&list, ft_ini_stack(4, 0));
+	write(1, "4", 1);
+	ft_lstadd_back_st(&list, ft_ini_stack(2, 0));
+	ft_lstadd_back_st(&list, ft_ini_stack(3, 0));
+	ft_lstadd_back_st(&list, ft_ini_stack(1, 0));
+	write(1, "2", 1);
 	printf("%d", compute_disorder(list));
 }
