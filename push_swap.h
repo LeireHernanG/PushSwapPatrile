@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/20 14:02:44 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/20 15:46:35 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,10 @@
 
 #include <stdio.h>
 
-typedef struct s_list
-{
-    int         position;
-	int			*content;
-	struct s_list	*next;
-}					t_list;
-
 typedef struct s_stacks
 {
     int         value;
+	int			*content;
 	struct s_list	*next;
 }					t_stacks;
 
