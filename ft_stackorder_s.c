@@ -6,46 +6,52 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:39 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/19 11:47:59 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:54:37 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sa(int *a, int *b)
+int ft_sb(t_stacks **a)
 {
-	int	i;
-	int	*temp;
+    t_stacks *stack1;
+    t_stacks *stack2;
 
-	temp = NULL;
-	i = 0;
-	if (!a || !b)
-		return (0);
-	temp[i] = a[i];
-	a[i] = a[i + 1];
-	a[i] = temp[i];
-	return (*a);
+    if (!a || !(*a)->next)
+        return (0);
+
+    stack1 = *a;
+    stack2 = stack1->next;
+
+    stack1->next = stack2->next;
+    stack2->next = stack1;
+    *a = stack2;
+
+    return (0);
 }
 
-int	ft_sb(int *a, int *b)
+int ft_sb(t_stacks **b)
 {
-	int	i;
-	int	*temp;
+    t_stacks *stack1;
+    t_stacks *stack2;
 
-	temp = NULL;
-	i = 0;
-	if (!a || !b)
-		return (0);
-	temp[i] = b[i];
-	b[i] = b[i + 1];
-	b[i] = temp[i];
-	return (*b);
+    if (!b || !(*b)->next)
+        return (0);
+
+    stack1 = *b;
+    stack2 = stack1->next;
+
+    stack1->next = stack2->next;
+    stack2->next = stack1;
+    *b = stack2;
+
+    return (0);
 }
 
-int	ft_ss(int *a, int *b)
+int	ft_ss(t_stacks **a, t_stacks **b)
 {
-	ft_sa(a, b);
-	ft_sb(a, b);
+	ft_sa(a);
+	ft_sb(b);
 	return (0);
 }
 

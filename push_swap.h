@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/19 11:52:21 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/20 14:02:44 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,19 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_stacks
+{
+    int         value;
+	struct s_list	*next;
+}					t_stacks;
+
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstnew(void *content);
 
-int	ft_sa(int *a, int *b);
-int	ft_sb(int *a, int *b);
-int	ft_ss(int *a, int *b);
-int	ft_pa(int *a, int *b);
-int	ft_pb(int *a, int *b);
+int ft_sb(t_stacks **a);
+int ft_sb(t_stacks **b);
+int	ft_ss(t_stacks **a, t_stacks **b);
+int ft_pa(t_stacks **a, t_stacks **b);
+int ft_pb(t_stacks **b);
 #endif

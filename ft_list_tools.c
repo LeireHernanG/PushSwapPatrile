@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/19 11:59:46 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:25:28 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ t_list	*ft_lstnew(void *content)
 	node1->next = NULL;
 	return (node1);
 }
-//prueba de git
