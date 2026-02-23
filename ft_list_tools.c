@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/20 17:19:29 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/23 12:34:49 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	ft_lstadd_back_st(t_stack **lst, t_stack *new)
 {
@@ -28,7 +29,7 @@ void	ft_lstadd_back_st(t_stack **lst, t_stack *new)
 	new1->next = new;
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	new->next = *lst;
 	*lst = new;
@@ -46,7 +47,7 @@ t_stack	*ft_ini_stack(int num, int pos)
 	node1->next = NULL;
 	return (node1);
 }
-//prueba de git
+// prueba de git
 t_stack	*ft_lstlast_st(t_stack *lst)
 {
 	t_stack	*last;
