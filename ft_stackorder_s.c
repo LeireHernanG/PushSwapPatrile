@@ -27,7 +27,7 @@ int ft_sb(t_stacks **a)
     stack2->next = stack1;
     *a = stack2;
 
-    return (0);
+    return (1);
 }
 
 int ft_sb(t_stacks **b)
@@ -45,13 +45,13 @@ int ft_sb(t_stacks **b)
     stack2->next = stack1;
     *b = stack2;
 
-    return (0);
+    return (1);
 }
 
 int	ft_ss(t_stacks **a, t_stacks **b)
 {
 	ft_sa(a);
 	ft_sb(b);
-	return (0);
+	return (1);
 }
 

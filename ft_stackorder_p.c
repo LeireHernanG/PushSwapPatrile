@@ -16,26 +16,26 @@ int ft_pa(t_stacks **a, t_stacks **b)
 {
     t_stacks *temp;
 
-    if (!a || !b)
+    if (!a || !b || !*b)
         return (0);
     temp = *b;
 	*b = *b -> next;
 	temp -> next = *a;
-	a = temp;
+	*a = temp;
 	
-    return (0);
+    return (1);
 }
 
 int ft_pb(t_stacks **a, t_stacks **b)
 {
     t_stacks *temp;
 
-    if (!a || !b)
+    if (!a || !b || !*a)
         return (0);
     temp = *a;
 	*a = *a -> next;
 	temp -> next = *b;
-	b = temp;
+	*b = temp;
 	
-    return (0);
+    return (1);
 }

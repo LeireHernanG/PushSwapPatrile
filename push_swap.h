@@ -37,6 +37,9 @@ int ft_sb(t_stacks **a);
 int ft_sb(t_stacks **b);
 int	ft_ss(t_stacks **a, t_stacks **b);
 int ft_pa(t_stacks **a, t_stacks **b);
-int ft_pb(t_stacks **b);
-
+int ft_pa(t_stacks **a, t_stacks **b);
+int ft_pb(t_stacks **a, t_stacks **b);
+int ft_rra(t_stacks **a);
+int ft_rrb(t_stacks **b);
+int ft_rrr(t_stacks *a, t_stacks *b);
 #endif
