@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/23 12:34:49 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/23 17:07:54 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ void	ft_lstadd_back_st(t_stack **lst, t_stack *new)
 	}
 	new1 = ft_lstlast_st(*lst);
 	new1->next = new;
-}
-
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
-{
-	new->next = *lst;
-	*lst = new;
 }
 
 t_stack	*ft_ini_stack(int num, int pos)
