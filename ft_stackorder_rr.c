@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:51 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/23 18:24:33 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:02:57 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int ft_rra(t_stack **a)
     }
     lastposition -> next = *a;
     *a = lastposition;
+    //ft_printf("%s","rra");
     return (1);
 }
 
@@ -43,12 +44,14 @@ int ft_rrb(t_stack **b)
     }
     lastposition -> next = *b;
     *b = lastposition;
+    //ft_printf("%s","rrb");
     return (1);
 }
 
-intft_rrr(t_stack *a, t_stack *b)
+int ft_rrr(t_stack *a, t_stack *b)
 {
-    ft_rra(a);
-    ft_rrb(b);
+    ft_rra(&a);
+    ft_rrb(&b);
+    //ft_printf("%s","rrr");
     return(1);
 }

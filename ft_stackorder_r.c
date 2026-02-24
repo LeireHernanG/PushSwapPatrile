@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:49 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/23 18:24:08 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:36:48 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,26 @@ int	ft_ra(t_stack **a)
 		lastposition = lastposition->next;
 	*a = position1->next;
 	lastposition->next = position1;
+	position1->next = NULL;
+	//ft_printf("%s","ra");
 	return (1);
 }
 
-int	ft_ra(t_stack **a)
+int	ft_rb(t_stack **b)
 {
 	t_stack	*position1;
 	t_stack	*lastposition;
 
-	if (!a || !*a)
+	if (!b || !*b)
 		return (0);
-	position1 = *a;
-	lastposition = *a;
+	position1 = *b;
+	lastposition = *b;
 	while (lastposition->next)
 		lastposition = lastposition->next;
-	*a = position1->next;
+	*b = position1->next;
 	position1 = NULL;
 	lastposition->next = position1;
+	position1->next = NULL;
+	//ft_printf("%s","rb");
 	return (1);
 }

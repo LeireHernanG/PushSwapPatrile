@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/23 17:07:54 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/24 12:58:09 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,19 @@ t_stack	*ft_lstlast_st(t_stack *lst)
 	while (last->next != NULL)
 		last = last->next;
 	return (last);
+}
+
+int	ft_lstsize_st(t_stack *lst)
+{
+	t_stack	*temp;
+	int		size;
+
+	size = 0;
+	temp = lst;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		size++;
+	}
+	return (size);
 }
