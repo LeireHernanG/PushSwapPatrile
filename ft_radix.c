@@ -10,8 +10,80 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
+//funcion para normalizar
+int     ft_index(t_stak *a)
+{
+    t_stack *tmp;
+    int     *value;
+    int     size;
+    int     i;
+    int     j;
+    
+    if (!a)
+        return(0);
+    size = ft_lstsize_st(a);
+    if (size <= 1)
+        return (0);
+    value = malloc(sizeof(int) * size); //preguntar a patricia si es mejor con nodos(pq no entiendo como hacerlo sino :)
+    if (!value)
+        return(0);
+    tmp = a;
+    i = 0;
+    //copip en mi array valeus
+    while(tmp)
+   {
+        values[i] = tmp->content;
+        tmp = tmp->next;
+        i++;
+    }
+    i = 0;
+    //los ordeno,izq peuqeños derecha grandes
+    while (i < size - 1)
+    {
+        j = 0;
+        while (j < size - i - 1)
+        {
+            if (values[j] > values[j + 1])
+                ft_sa(&values[j]);
+            j++;
+        }
+        i++;
+    } 
+    tmp = a;
+    //asigno indice al encontarr la i
+    while (tmp)
+    {
+        i = 0;
+        while (i < size)
+        {
+            if (values[i] == tmp->content)
+            {
+                tmp->position = i;
+                break ;
+            }
+            i++;
+        }
+        tmp = tmp->next;
+    }
+    free(values);
+}
+int ft_max_bits(int size)
+{
+    int bits;
+    int max;
+
+    if (size <= 1)
+        return (0);
+    bits = 0;
+    max = size - 1;
+    while (max> 0)
+    {
+        bits++;
+        max_value >>= 1;
+    }
+    return (bits);
+}
 
 int ft_radix(t_stack **a, t_stack **b)
 {
