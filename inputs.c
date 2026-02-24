@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:45:49 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/02/23 17:39:21 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/23 19:08:27 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ static int	is_not_correct(char *param)
 		{
 			if (!ft_isdigit(nums[i][j]))
 			{
-				free_mat(nums);
-				return (1);
+				if (!((nums[i][j] == '-' || nums[i][j] == '+') && nums[i][j + 1]
+						&& ft_isdigit(nums[i][j + 1])))
+				{
+					free_mat(nums);
+					return (1);
+				}
 			}
 			j++;
 		}
