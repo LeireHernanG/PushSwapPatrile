@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 		printf("inputs incorrectos");
 		return (1);
 	}
-	printf("%d\n", algorithm);
 	stackA = fill_stack(argc, argv);
 	stackB = stackA;
 	while (stackB)
@@ -27,11 +26,5 @@ int	main(int argc, char **argv)
 		stackB = stackB->next;
 	}
 	ft_buble_sort(&stackA);
-	stackB = stackA;
-	while (stackB)
-	{
-		printf("%d\n", stackB->content);
-		stackB = stackB->next;
-	}
 	return (0);
 }
