@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/24 16:46:42 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/25 12:56:31 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int					ft_rra(t_stack **a);
 int					ft_rrb(t_stack **b);
 int					ft_rrr(t_stack *a, t_stack *b);
 
-int ft_buble_sort(t_stack **a);
-int ft_radix(t_stack **a, t_stack **b);
+int					ft_buble_sort(t_stack **a);
+int					ft_radix(t_stack **a, t_stack **b);
 #endif

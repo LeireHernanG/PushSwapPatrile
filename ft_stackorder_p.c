@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:38 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/24 13:00:46 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/25 13:15:49 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ int	ft_pa(t_stack **a, t_stack **b)
 		return (0);
 	temp = *b;
 	*b = (*b)->next;
-	temp->next = *a;
+	if (*a)
+		temp->next = *a;
+	else
+		temp->next = NULL;
 	*a = temp;
-	//ft_printf("%s","pa");
+	write(1, "pa\n", 3);
 	return (1);
 }
 
@@ -34,8 +37,11 @@ int	ft_pb(t_stack **a, t_stack **b)
 		return (0);
 	temp = *a;
 	*a = (*a)->next;
-	temp->next = *b;
+	if (*b)
+		temp->next = *b;
+	else
+		temp->next = NULL;
 	*b = temp;
-	//ft_printf("%s","pb");
+	write(1, "pb\n", 3);
 	return (1);
 }

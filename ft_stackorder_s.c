@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:39 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/24 16:05:47 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/25 12:56:06 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	ft_sa(t_stack **a)
 	stack2 = stack1->next;
 	stack1->next = stack2->next;
 	stack2->next = stack1;
-	*a = stack2;	
-	//ft_printf("%s","sa");
+	*a = stack2;
+	write(1, "sa\n", 3);
 	return (1);
 }
 
@@ -40,7 +40,7 @@ int	ft_sb(t_stack **b)
 	stack1->next = stack2->next;
 	stack2->next = stack1;
 	*b = stack2;
-	//ft_printf("%s","sb");
+	write(1, "sb\n", 3);
 	return (1);
 }
 
@@ -48,6 +48,6 @@ int	ft_ss(t_stack **a, t_stack **b)
 {
 	ft_sa(a);
 	ft_sb(b);
-	//ft_printf("%s","ss");
+	write(1, "ss\n", 3);
 	return (1);
 }
