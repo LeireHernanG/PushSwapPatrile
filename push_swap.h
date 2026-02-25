@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/25 13:28:03 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/25 13:37:05 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ int					ft_rrr(t_stack *a, t_stack *b);
 int									ft_buble_sort(t_stack **a);
 int									ft_radix(t_stack **a, t_stack **b);
 int 								ft_max_bits(int size);
-int									ft_index(t_stack *a)
+int									ft_index(t_stack *a);
 #endif
