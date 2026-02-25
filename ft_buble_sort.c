@@ -6,65 +6,79 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 18:17:47 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/02/24 16:27:06 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/25 13:11:11 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 #include <unistd.h>
+
 static int	ft_rightorder(t_stack *a)
 {
-	while (a->next && a -> content < a->next->content)
+	if (!a)
+		return (0);
+	while (a->next && a->content < a->next->content)
 	{
 		a = a->next;
 	}
 	if (a->next == NULL)
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
-int ft_buble_sort(t_stack **a)
+
+static int	round_a(t_stack **a, t_stack **b)
+{
+	int	count;
+
+	count = 0;
+	if (ft_rightorder(*a))
+		return (count);
+	while (*a)
+	{
+		if ((*a)->next && (*a)->content > (*a)->next->content)
+			ft_sa(a);
+		ft_pb(a, b);
+		if ((*b)->next)
+			ft_rb(b);
+		count++;
+	}
+	return (count);
+}
+
+static int	round_b(t_stack **a, t_stack **b)
+{
+	int	count;
+
+	count = 0;
+	if (ft_rightorder(*b))
+		return (count);
+	while (*b)
+	{
+		if ((*b)->next && (*b)->content > (*b)->next->content)
+			ft_sb(b);
+		ft_pa(a, b);
+		if ((*a)->next)
+			ft_ra(a);
+		count++;
+	}
+	return (count);
+}
+
+int	ft_buble_sort(t_stack **a)
 {
 	int		order;
-	t_stack *stackB;
+	t_stack	*b;
 
 	order = 1;
-
-
-	while (order)
+	b = NULL;
+	while (order > 0)
 	{
-		if (ft_rightorder(*a) == 1)
-				return (1);
-		if ((*a)->content > (*a)->next->content)
-		{
-			ft_sa(a);
-			if (ft_rightorder(*a) == 1)
-			{
-				write(1,"s\n",2);
-				return (1);	
-			}
-			ft_ra(a);
-			if (ft_rightorder(*a) == 1)
-			{
-				write(1,"ra\n",3);
-				return (1);
-			}
-			write(1,"t\n",2);
-		}
+		order = 0;
+		if (!*a)
+			order = round_b(a, &b);
 		else
-		{
-			ft_ra(a);
-			if (ft_rightorder(*a) == 1)
-				return (1);
-			write(1,"ra\n",3);
-		}
-		stackB = *a;
-		while (stackB)
-		{
-			printf("%d\n", stackB->content);
-			stackB = stackB->next;
-		}
+			order = round_a(a, &b);
 	}
 	return (1);
 }
-
