@@ -6,16 +6,16 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/24 18:37:56 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/25 13:03:53 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //funcion para normalizar
-int     ft_index(t_stak *a)
+int     ft_index(t_stack *a)
 {
     t_stack *tmp;
-    int     *value;
+    int     *values;
     int     size;
     int     i;
     int     j;
@@ -25,8 +25,8 @@ int     ft_index(t_stak *a)
     size = ft_lstsize_st(a);
     if (size <= 1)
         return (0);
-    value = malloc(sizeof(int) * size); //preguntar a patricia si es mejor con nodos(pq no entiendo como hacerlo sino :)
-    if (!value)
+    values = malloc(sizeof(int) * size); 
+    if (!values)
         return(0);
     tmp = a;
     i = 0;
@@ -36,7 +36,7 @@ int     ft_index(t_stak *a)
         values[i] = tmp->content;
         tmp = tmp->next;
         i++;
-    }
+    } 
     i = 0;
     //los ordeno,izq peuqeños derecha grandes
     while (i < size - 1)
@@ -45,7 +45,7 @@ int     ft_index(t_stak *a)
         while (j < size - i - 1)
         {
             if (values[j] > values[j + 1])
-                ft_sa(&values[j]);
+             ft_sa(values[j]);  
             j++;
         }
         i++;
@@ -67,24 +67,25 @@ int     ft_index(t_stak *a)
         tmp = tmp->next;
     }
     free(values);
-}
+    return (0);
+} 
 int ft_max_bits(int size)
 {
     int bits;
     int max;
 
-    if (size <= 1)
+    if (size < 1)
         return (0);
     bits = 0;
     max = size - 1;
-    while (max> 0)
+    while (max > 0)
     {
         bits++;
-        max_value >>= 1;
+        max >>= 1;
     }
     return (bits);
 }
-
+/* 
 int ft_radix(t_stack **a, t_stack **b)
 {
     int size_a;
@@ -120,4 +121,4 @@ int ft_radix(t_stack **a, t_stack **b)
         i++;
     }
     return (1);
-}
+} */
