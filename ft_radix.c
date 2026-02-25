@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/25 13:03:53 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/25 13:59:58 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int     ft_index(t_stack *a)
 {
     t_stack *tmp;
-    int     *values;
+    t_stack *values;
     int     size;
     int     i;
     int     j;
@@ -23,30 +23,18 @@ int     ft_index(t_stack *a)
     if (!a)
         return(0);
     size = ft_lstsize_st(a);
-    if (size <= 1)
-        return (0);
-    values = malloc(sizeof(int) * size); 
-    if (!values)
-        return(0);
     tmp = a;
-    i = 0;
-    //copip en mi array valeus
-    while(tmp)
-   {
-        values[i] = tmp->content;
-        tmp = tmp->next;
-        i++;
-    } 
+    
     i = 0;
     //los ordeno,izq peuqeños derecha grandes
-    while (i < size - 1)
+    while (tmp < size - 1)
     {
-        j = 0;
-        while (j < size - i - 1)
+        values = tmp -> next;
+        while (values)
         {
-            if (values[j] > values[j + 1])
-             ft_sa(values[j]);  
-            j++;
+            if (tmp ->content > values -> content)
+             ft_sa(tmp);  
+            values= values -> next;
         }
         i++;
     } 
