@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:43:45 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/25 20:17:14 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/26 16:42:19 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,27 @@
 	t_stack	*index;
 	int		max;
 	int		size;
-
+ 	
 	size = ft_lstsize_st(*b);
-	if (!a || !b || !*b)
-		return (0);
 	while (*b)
 	{
-		index = *b;
-		max = 0;
-		while (index->content > index->next->content)
-			max++;
-		if (max == ft_lstsize_st(*b) - 1)
+		if((*b)->next == NULL)
 			ft_pa(a, b);
+		else
+		{
+			
+			index = (*b)->next;
+			max = 0;
+			while (index && (*b)->content > index->content)
+			{
+				max++;
+				index = index->next;
+			}
+			if (max == ft_lstsize_st(*b) - 1 )
+				ft_pa(a, b);
+			else
+				ft_rb(b);
+		}
 	}
 	while (size > 0)
 	{
@@ -56,16 +65,17 @@ int	ft_sqrt(int nb)
 	int		n;
 	int		i;
 	int		groups;
+	t_stack *stackB;
 	
 	n = ft_sqrt(ft_lstsize_st(*a));
-	groups = ft_lstsize_st(a) / n;
-	if ((ft_lstsize_st(a) % n) != 0)
+	groups = ft_lstsize_st(*a) / n;
+	if ((ft_lstsize_st(*a) % n) != 0)
 		groups++;
 	while (groups > 0)
 	{
 		i = 0;
-		if (groups == 1)
-			n = ft_lstsize_st(a) % n;
+		if (groups == 1 &&  (ft_lstsize_st(*a) % n) != 0)
+			n = ft_lstsize_st(*a) % n;
 		while (i < n)
 		{
 			ft_pb(a, &b);
@@ -74,11 +84,6 @@ int	ft_sqrt(int nb)
 		ft_maxorder(a, &b);
 		groups--;
 	}
-}
-int main(void)
-{
-	int	 n;
-	n = 24;
-	printf("%d", ft_sqrt(n));
-	return (1);
+	ft_maxorder(&b, a);
+	return (0);
 }
