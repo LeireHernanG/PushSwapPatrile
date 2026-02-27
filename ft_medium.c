@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:43:45 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 17:07:40 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:34:53 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	ft_maxorder(t_stack **a, t_stack **b)
 	else
 		ft_rb(b);
 }
+
 int	ft_orderb(t_stack **a, t_stack **b)
 {
 	int	size;
@@ -49,6 +50,7 @@ int	ft_orderb(t_stack **a, t_stack **b)
 	}
 	return (1);
 }
+
 int	ft_sqrt(int nb)
 {
 	int	i;
@@ -67,7 +69,6 @@ int	ft_chunkorder(t_stack **a)
 	int		n;
 	int		i;
 	int		groups;
-	t_stack	*stackB;
 
 	n = ft_sqrt(ft_lstsize_st(*a));
 	groups = ft_lstsize_st(*a) / n;

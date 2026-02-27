@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:49 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/25 13:17:30 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:33:16 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_ra(t_stack **a)
 
 int	ft_rb(t_stack **b)
 {
-	t_stack *position1;
-	t_stack *lastposition;
+	t_stack	*position1;
+	t_stack	*lastposition;
 
 	if (!b || !*b)
 		return (0);

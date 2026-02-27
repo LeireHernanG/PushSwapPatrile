@@ -1,31 +1,33 @@
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC =
-
+SRC = ft_adaptative.c ft_buble_sort.c ft_disorder_index.c ft_list_tools.c \
+      ft_medium.c ft_push_swap.c ft_radix.c ft_stackorder_p.c \
+      ft_stackorder_r.c ft_stackorder_rr.c ft_stackorder_s.c inputs.c
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = push_swap.h libft.h
+INCLUDE = push_swap.h
+LIBFT = libft/libft.a
 
-AR = ar rcs
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	make -C libft
-	cp libft/libft.a $(NAME)
-	$(AR) $@ $^
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ) -Llibft -lft -o $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C libft
 
 %.o: %.c $(INCLUDE) Makefile
-	$(CC) $(CFLAGS) -Ilibft -c -o $@ $<
+	$(CC) $(CFLAGS) -Ilibft -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
-	make -C libft clean
+	$(MAKE) -C libft clean
 
 fclean: clean
 	$(RM) $(NAME)

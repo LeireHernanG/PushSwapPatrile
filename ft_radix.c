@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 17:07:08 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:35:36 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_index(t_stack **a)
 		tmp->position = max--;
 	}
 }
+
 void	ft_sortbit(t_stack **a, t_stack **b, int bit, int size)
 {
 	t_stack	*tmp;
@@ -59,6 +60,24 @@ void	ft_sortbit(t_stack **a, t_stack **b, int bit, int size)
 	while (*b)
 		ft_pa(a, b);
 }
+
+int	ft_max_bits(int size)
+{
+	int	bits;
+	int	max;
+
+	if (size < 1)
+		return (0);
+	bits = 0;
+	max = size - 1;
+	while (max > 0)
+	{
+		bits++;
+		max >>= 1;
+	}
+	return (bits);
+}
+
 int	ft_radix(t_stack **a)
 {
 	t_stack	*b;
@@ -76,20 +95,4 @@ int	ft_radix(t_stack **a)
 		bit++;
 	}
 	return (0);
-}
-int	ft_max_bits(int size)
-{
-	int	bits;
-	int	max;
-
-	if (size < 1)
-		return (0);
-	bits = 0;
-	max = size - 1;
-	while (max > 0)
-	{
-		bits++;
-		max >>= 1;
-	}
-	return (bits);
 }

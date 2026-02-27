@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 16:52:44 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:34:05 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int					ft_lstsize_st(t_stack *lst);
 int					control_errors(int argc, char **argv);
 void				free_mat(char **matrix);
 t_stack				*fill_stack(int argc, char **argv);
+int					ft_adaptative(t_stack **a);
+float				compute_disorder(t_stack *stack);
 
 int					ft_sa(t_stack **a);
 int					ft_sb(t_stack **b);
@@ -44,8 +46,9 @@ int					ft_rrb(t_stack **b);
 int					ft_rrr(t_stack *a, t_stack *b);
 
 int					ft_buble_sort(t_stack **a);
-void     			ft_index(t_stack **a);
-int 				ft_max_bits(int size);
+int					ft_radix(t_stack **a);
+void				ft_index(t_stack **a);
+int					ft_max_bits(int size);
 int					ft_sqrt(int nb);
-int					ft_chunkorder(t_stack	**a);
+int					ft_chunkorder(t_stack **a);
 #endif

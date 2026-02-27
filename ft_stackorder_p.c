@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:38 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/25 13:15:49 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:35:17 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_pa(t_stack **a, t_stack **b)
 
 int	ft_pb(t_stack **a, t_stack **b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!a || !b || !*a)
 		return (0);

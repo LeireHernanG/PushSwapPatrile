@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/24 12:58:09 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:37:50 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_stack	*ft_ini_stack(int num, int pos)
 	node1->next = NULL;
 	return (node1);
 }
-// prueba de git
+
 t_stack	*ft_lstlast_st(t_stack *lst)
 {
 	t_stack	*last;
