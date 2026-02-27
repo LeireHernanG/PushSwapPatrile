@@ -6,38 +6,41 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:43:45 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/26 16:42:19 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/27 17:07:40 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
- int	ft_maxorder(t_stack **a, t_stack **b)
+
+static void	ft_maxorder(t_stack **a, t_stack **b)
 {
 	t_stack	*index;
 	int		max;
-	int		size;
- 	
+
+	index = (*b)->next;
+	max = 0;
+	while (index && (*b)->content > index->content)
+	{
+		max++;
+		index = index->next;
+	}
+	if (max == ft_lstsize_st(*b) - 1)
+		ft_pa(a, b);
+	else
+		ft_rb(b);
+}
+int	ft_orderb(t_stack **a, t_stack **b)
+{
+	int	size;
+
 	size = ft_lstsize_st(*b);
 	while (*b)
 	{
-		if((*b)->next == NULL)
+		if ((*b)->next == NULL)
 			ft_pa(a, b);
 		else
-		{
-			
-			index = (*b)->next;
-			max = 0;
-			while (index && (*b)->content > index->content)
-			{
-				max++;
-				index = index->next;
-			}
-			if (max == ft_lstsize_st(*b) - 1 )
-				ft_pa(a, b);
-			else
-				ft_rb(b);
-		}
+			ft_maxorder(a, b);
 	}
 	while (size > 0)
 	{
@@ -45,8 +48,7 @@
 		size--;
 	}
 	return (1);
-} 
-
+}
 int	ft_sqrt(int nb)
 {
 	int	i;
@@ -59,14 +61,14 @@ int	ft_sqrt(int nb)
 	return (i - 1);
 }
 
- int	ft_chunkorder(t_stack	**a)
+int	ft_chunkorder(t_stack **a)
 {
 	t_stack	*b;
 	int		n;
 	int		i;
 	int		groups;
-	t_stack *stackB;
-	
+	t_stack	*stackB;
+
 	n = ft_sqrt(ft_lstsize_st(*a));
 	groups = ft_lstsize_st(*a) / n;
 	if ((ft_lstsize_st(*a) % n) != 0)
@@ -74,16 +76,16 @@ int	ft_sqrt(int nb)
 	while (groups > 0)
 	{
 		i = 0;
-		if (groups == 1 &&  (ft_lstsize_st(*a) % n) != 0)
+		if (groups == 1 && (ft_lstsize_st(*a) % n) != 0)
 			n = ft_lstsize_st(*a) % n;
 		while (i < n)
 		{
 			ft_pb(a, &b);
 			i++;
 		}
-		ft_maxorder(a, &b);
+		ft_orderb(a, &b);
 		groups--;
 	}
-	ft_maxorder(&b, a);
+	ft_orderb(&b, a);
 	return (0);
 }
