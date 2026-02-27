@@ -6,57 +6,83 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/25 13:59:58 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/02/27 14:25:53 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 //funcion para normalizar
-int     ft_index(t_stack *a)
+void     ft_index(t_stack **a)
 {
     t_stack *tmp;
-    t_stack *values;
-    int     size;
-    int     i;
-    int     j;
-    
-    if (!a)
-        return(0);
-    size = ft_lstsize_st(a);
-    tmp = a;
-    
-    i = 0;
-    //los ordeno,izq peuqeños derecha grandes
-    while (tmp < size - 1)
-    {
-        values = tmp -> next;
-        while (values)
-        {
-            if (tmp ->content > values -> content)
-             ft_sa(tmp);  
-            values= values -> next;
-        }
-        i++;
-    } 
-    tmp = a;
-    //asigno indice al encontarr la i
+    t_stack *tmp2;
+    int     max;
+
+    max = ft_lstsize_st(*a) -1;
+    tmp = *a;
     while (tmp)
     {
-        i = 0;
-        while (i < size)
+        tmp->position = 0;
+        tmp=tmp->next;
+    }
+    while(max >= 0)
+    {
+        tmp = *a;
+        while (tmp->position != 0)
+            tmp = tmp->next;
+        tmp2 = tmp->next;
+        while (tmp2)
         {
-            if (values[i] == tmp->content)
-            {
-                tmp->position = i;
-                break ;
-            }
+            if (tmp->content < tmp2->content && tmp2->position == 0)
+                tmp = tmp2;
+            tmp2 = tmp2->next;
+        }
+        tmp->position = max--;
+    }
+} 
+int ft_radix(t_stack **a)
+{
+    t_stack *b;
+    t_stack *tmp;
+    t_stack *stackB;
+    int bit;
+    int size;
+    int bitmax;
+    int i;
+    
+    i = 0;
+    bit = 0;
+    tmp = *a;
+    size = ft_lstsize_st(*a) - 1;
+    bitmax = ft_max_bits(size);
+    ft_index(a);
+    stackB = *a;
+     write(1,"\n\n",2);
+	while (stackB)
+	{
+		printf("%d\n", stackB->position);
+		stackB = stackB->next;
+	}
+    printf(":%d\n", bitmax);
+    while (bit <= bitmax)
+    {
+        tmp = *a;
+        while(i <= size)
+        {
+            if (!((tmp->position >> bit) &1))
+                ft_pb(a, &b);
+            else
+                ft_ra(a);
+            tmp = *a;
             i++;
         }
-        tmp = tmp->next;
+        while(b)
+            ft_pa(a,&b);
+        bit++;
     }
-    free(values);
     return (0);
-} 
+}
 int ft_max_bits(int size)
 {
     int bits;
@@ -73,7 +99,30 @@ int ft_max_bits(int size)
     }
     return (bits);
 }
-/* 
+
+ int main(int argc, char **argv)
+{
+    int size;
+    int max;
+	int indi;
+	int i;
+	t_stack *a;
+    t_stack *stackB;
+
+    a = fill_stack(argc, argv);
+    size = ft_lstsize_st(a);
+	
+	ft_radix(&a);
+	stackB = a;
+     write(1,"\n\n",2);
+	while (stackB)
+	{
+		printf("%d\n", stackB->content);
+		stackB = stackB->next;
+	}
+    return (0);
+} 
+/*
 int ft_radix(t_stack **a, t_stack **b)
 {
     int size_a;
