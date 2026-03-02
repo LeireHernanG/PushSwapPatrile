@@ -1,54 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_medium.c                                        :+:      :+:    :+:   */
+/*   ft_med2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 11:43:45 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/02 12:23:11 by lhernan-         ###   ########.fr       */
+/*   Created: 2026/03/02 16:00:20 by lhernan-          #+#    #+#             */
+/*   Updated: 2026/03/02 19:19:33 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-static void	ft_maxorder(t_stack **a, t_stack **b)
+void	ft_normchunk(int n, t_stack **inichunk)
 {
-	t_stack	*index;
+	t_stack	*tmp;
 	int		max;
+	t_stack	*tmp2;
+	int		i;
 
-	index = (*b)->next;
-	max = 0;
-	while (index && (*b)->content > index->content)
+	max = n;
+	while (max > 0)
 	{
-		max++;
-		index = index->next;
+		i = n;
+		tmp = *inichunk;
+		while (tmp->position != 0 && i > 1)
+		{
+			tmp = tmp->next;
+			i--;
+		}
+		tmp2 = tmp->next;
+		while (i > 1)
+		{
+			if (tmp2 && tmp->content < tmp2->content && tmp2->position == 0)
+				tmp = tmp2;
+			tmp2 = tmp2->next;
+			i--;
+		}
+		tmp->position = max--;
 	}
-	if (max == ft_lstsize_st(*b) - 1)
-		ft_pa(a, b);
-	else
-		ft_rb(b);
 }
 
-int	ft_orderb(t_stack **a, t_stack **b)
+void	ft_indexmed(t_stack **a, int n)
 {
-	int	size;
+	t_stack	*tmp;
+	t_stack	*inichunk;
+	int		i;
+	int		groups;
 
-	size = ft_lstsize_st(*b);
-	while (*b)
+	tmp = *a;
+	inichunk = *a;
+	groups = ft_lstsize_st(*a) / n;
+	if ((ft_lstsize_st(*a) % n) != 0)
+		groups++;
+	while (tmp)
 	{
-		if ((*b)->next == NULL)
-			ft_pa(a, b);
-		else
-			ft_maxorder(a, b);
+		tmp->position = 0;
+		tmp = tmp->next;
 	}
-	while (size > 0)
+	while (groups > 0)
 	{
-		ft_ra(a);
-		size--;
+		if (groups == 1 && (ft_lstsize_st(*a) % n) != 0)
+			n = ft_lstsize_st(*a) % n;
+		ft_normchunk(n, &inichunk);
+		i = n;
+		while (i-- > 0)
+			inichunk = inichunk->next;
+		groups--;
 	}
-	return (1);
 }
 
 int	ft_sqrt(int nb)
@@ -68,26 +87,25 @@ int	ft_chunkorder(t_stack **a)
 	t_stack	*b;
 	int		n;
 	int		i;
-	int		groups;
+	int		size;
 
 	b = NULL;
 	n = ft_sqrt(ft_lstsize_st(*a));
-	groups = ft_lstsize_st(*a) / n;
-	if ((ft_lstsize_st(*a) % n) != 0)
-		groups++;
-	while (groups > 0)
+	ft_indexmed(a, n);
+	while (n > 0)
 	{
 		i = 0;
-		if (groups == 1 && (ft_lstsize_st(*a) % n) != 0)
-			n = ft_lstsize_st(*a) % n;
-		while (i < n)
+		size = ft_lstsize_st(*a);
+		while (i++ < size)
 		{
-			ft_pb(a, &b);
-			i++;
+			if ((*a)->position == n)
+				ft_pb(a, &b);
+			else
+				ft_ra(a);
 		}
-		ft_orderb(a, &b);
-		groups--;
+		n--;
 	}
-	ft_orderb(&b, a);
+	*a = b;
+	ft_buble_sort(a);
 	return (0);
 }

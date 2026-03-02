@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:34:05 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:54:35 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ void				ft_index(t_stack **a);
 int					ft_max_bits(int size);
 int					ft_sqrt(int nb);
 int					ft_chunkorder(t_stack **a);
+
 #endif

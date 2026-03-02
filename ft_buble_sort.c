@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_buble_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 18:17:47 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/02/25 13:11:11 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:14:39 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ int	ft_buble_sort(t_stack **a)
 		else
 			order = round_a(a, &b);
 	}
+	if (!*a)
+		*a = b;
 	return (1);
 }

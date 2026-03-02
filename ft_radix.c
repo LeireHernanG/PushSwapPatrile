@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/02 12:19:52 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:24:43 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_index(t_stack **a)
 	}
 }
 
-void	ft_sortbit(t_stack **a, t_stack **b, int bit, int size)
+void	ft_sortbit(t_stack **a, t_stack **b, int bit, int size, int *moves)
 {
 	t_stack	*tmp;
 	int		i;
@@ -51,17 +51,26 @@ void	ft_sortbit(t_stack **a, t_stack **b, int bit, int size)
 	while (i <= size)
 	{
 		if (!((tmp->position >> bit) & 1))
+		{
 			ft_pb(a, b);
+			(*moves)++;
+		}
 		else
 		{
 			if ((*a)->next)
+			{
 				ft_ra(a);
+				(*moves)++;
+			}
 		}
 		tmp = *a;
 		i++;
 	}
 	while (*b)
+	{
 		ft_pa(a, b);
+		(*moves)++;
+	}
 }
 
 int	ft_max_bits(int size)
@@ -87,16 +96,19 @@ int	ft_radix(t_stack **a)
 	int		bit;
 	int		size;
 	int		bitmax;
+	int		moves;
 
 	bit = 0;
 	b = NULL;
+	moves = 0;
 	size = ft_lstsize_st(*a) - 1;
 	bitmax = ft_max_bits(size);
 	ft_index(a);
 	while (bit <= bitmax)
 	{
-		ft_sortbit(a, &b, bit, size);
+		ft_sortbit(a, &b, bit, size, &moves);
 		bit++;
 	}
+	printf("%d", moves);
 	return (0);
 }
