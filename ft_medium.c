@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:43:45 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:34:53 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:23:11 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	ft_chunkorder(t_stack **a)
 	int		i;
 	int		groups;
 
+	b = NULL;
 	n = ft_sqrt(ft_lstsize_st(*a));
 	groups = ft_lstsize_st(*a) / n;
 	if ((ft_lstsize_st(*a) % n) != 0)

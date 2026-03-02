@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-/* int	main(int argc, char **argv)
+ int	main(int argc, char **argv)
 {
 	int algorithm;
 	t_stack *stackA;
@@ -25,7 +25,7 @@
 		printf("%d\n", stackB->content);
 		stackB = stackB->next;
 	}
-	ft_radix(&stackA, &stackB);
+	ft_radix(&stackA);
 	stackB = stackA;
 	while (stackB)
 	{
@@ -33,10 +33,10 @@
 		stackB = stackB->next;
 	}
 	return (0);
-} */
+} 
 
 //MAIN PARA VER EL MAXIMO DE ITERACIONES EN BITS
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     int size;
     int max;
@@ -56,4 +56,4 @@ int main(int argc, char **argv)
 		i++;
 	}
     return (0);
-}
+} */

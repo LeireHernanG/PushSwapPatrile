@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:40:13 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:36:33 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:24:08 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ int	main(int argc, char **argv)
 {
 	int		algorithm;
 	t_stack	*stackA;
-
+	
 	if (argc <= 1)
 		return (1);
 	algorithm = control_errors(argc, argv);
 	if (algorithm == 0)
 		return (1);
 	stackA = fill_stack(argc, argv);
-	ft_selection(algorithm, &stackA);
+	
+	ft_selection(algorithm,&stackA);
 	return (0);
 }

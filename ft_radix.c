@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:35:36 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:19:52 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ void	ft_sortbit(t_stack **a, t_stack **b, int bit, int size)
 		if (!((tmp->position >> bit) & 1))
 			ft_pb(a, b);
 		else
-			ft_ra(a);
+		{
+			if ((*a)->next)
+				ft_ra(a);
+		}
 		tmp = *a;
 		i++;
 	}
@@ -86,6 +89,7 @@ int	ft_radix(t_stack **a)
 	int		bitmax;
 
 	bit = 0;
+	b = NULL;
 	size = ft_lstsize_st(*a) - 1;
 	bitmax = ft_max_bits(size);
 	ft_index(a);
