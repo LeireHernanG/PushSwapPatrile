@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_buble_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 18:17:47 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/03 16:45:03 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 18:47:42 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_rightorder(t_stack *a)
 	return (0);
 }
 
-static int	round_a(t_stack **a, t_stack **b,t_totalmoves **totalmoves)
+static int	round_a(t_stack **a, t_stack **b, t_totalmoves **totalmoves)
 {
 	int	count;
 
@@ -49,14 +49,14 @@ static int	round_a(t_stack **a, t_stack **b,t_totalmoves **totalmoves)
 static int	round_b(t_stack **a, t_stack **b, t_totalmoves **totalmoves)
 {
 	int	count;
-	
+
 	count = 0;
 	if (ft_rightorder(*b))
 		return (count);
 	while (*b)
 	{
 		if ((*b)->next && (*b)->content > (*b)->next->content)
-			ft_sb(b,totalmoves);
+			ft_sb(b, totalmoves);
 		ft_pa(a, b, totalmoves);
 		if ((*a)->next)
 			ft_ra(a, totalmoves);
