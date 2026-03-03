@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 12:13:38 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/03 12:16:36 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_lstsize_st(t_stack *lst)
 
 void	ft_lstclear_st(t_stack **lst)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!lst)
 		return ;
