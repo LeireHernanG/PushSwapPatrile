@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_med2.c                                          :+:      :+:    :+:   */
+/*   ft_medium.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 16:00:20 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/02 19:19:33 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:48:22 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_normchunk(int n, t_stack **inichunk)
+static void	ft_normchunk(int n, t_stack **inichunk)
 {
 	t_stack	*tmp;
 	int		max;
@@ -41,7 +41,7 @@ void	ft_normchunk(int n, t_stack **inichunk)
 	}
 }
 
-void	ft_indexmed(t_stack **a, int n)
+static void	ft_indexmed(t_stack **a, int n)
 {
 	t_stack	*tmp;
 	t_stack	*inichunk;
@@ -70,7 +70,7 @@ void	ft_indexmed(t_stack **a, int n)
 	}
 }
 
-int	ft_sqrt(int nb)
+static int	ft_sqrt(int nb)
 {
 	int	i;
 
@@ -82,13 +82,13 @@ int	ft_sqrt(int nb)
 	return (i - 1);
 }
 
-int	ft_chunkorder(t_stack **a)
+int	ft_chunkorder(t_stack **a, t_totalmoves **totalmoves)
 {
 	t_stack	*b;
 	int		n;
 	int		i;
 	int		size;
-
+	
 	b = NULL;
 	n = ft_sqrt(ft_lstsize_st(*a));
 	ft_indexmed(a, n);
@@ -99,13 +99,13 @@ int	ft_chunkorder(t_stack **a)
 		while (i++ < size)
 		{
 			if ((*a)->position == n)
-				ft_pb(a, &b);
+				ft_pb(a, &b,totalmoves);
 			else
-				ft_ra(a);
+				ft_ra(a,totalmoves);
 		}
 		n--;
 	}
 	*a = b;
-	ft_buble_sort(a);
+	ft_buble_sort(a, totalmoves);
 	return (0);
 }

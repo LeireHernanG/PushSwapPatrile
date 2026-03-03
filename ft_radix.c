@@ -6,13 +6,13 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 10:50:36 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:48:32 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_index(t_stack **a)
+static void	ft_index(t_stack **a)
 {
 	t_stack	*tmp;
 	t_stack	*tmp2;
@@ -41,20 +41,11 @@ void	ft_index(t_stack **a)
 	}
 }
 
-static void	ft_movetostacka(t_stack **b, t_stack **a, int *moves)
+static void	ft_sortbit(t_stack **a, t_stack **b, int bit,t_totalmoves **totalmoves)
 {
-	while (*b)
-	{
-		ft_pa(a, b);
-		(*moves)++;
-	}
-}
-
-static void	ft_sortbit(t_stack **a, t_stack **b, int bit, int *moves)
-{
-	t_stack	*tmp;
-	int		i;
-	int		size;
+	t_stack			*tmp;
+	int				i;
+	int				size;
 
 	size = ft_lstsize_st(*a) - 1;
 	tmp = *a;
@@ -62,21 +53,16 @@ static void	ft_sortbit(t_stack **a, t_stack **b, int bit, int *moves)
 	while (i++ <= size)
 	{
 		if (!((tmp->position >> bit) & 1))
-		{
-			ft_pb(a, b);
-			(*moves)++;
-		}
+			ft_pb(a, b, totalmoves);
 		else
 		{
 			if ((*a)->next)
-			{
-				ft_ra(a);
-				(*moves)++;
-			}
+				ft_ra(a, totalmoves);
 		}
 		tmp = *a;
 	}
-	ft_movetostacka(b, a, moves);
+	while (*b)
+		ft_pa(a, b, totalmoves);
 }
 
 static int	ft_max_bits(int size)
@@ -96,23 +82,20 @@ static int	ft_max_bits(int size)
 	return (bits);
 }
 
-int	ft_radix(t_stack **a)
+int	ft_radix(t_stack **a, t_totalmoves **totalmoves)
 {
 	t_stack	*b;
 	int		bit;
 	int		bitmax;
-	int		moves;
 
 	bit = 0;
 	b = NULL;
-	moves = 0;
 	bitmax = ft_max_bits(ft_lstsize_st(*a) - 1);
 	ft_index(a);
 	while (bit <= bitmax)
 	{
-		ft_sortbit(a, &b, bit, &moves);
+		ft_sortbit(a, &b, bit, totalmoves);
 		bit++;
 	}
-	printf("%d", moves);
 	return (0);
 }

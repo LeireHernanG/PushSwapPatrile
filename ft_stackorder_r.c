@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stackorder_r.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:49 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:33:16 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:54:53 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_ra(t_stack **a)
+int	ft_ra(t_stack **a, t_totalmoves **moves)
 {
 	t_stack	*position1;
 	t_stack	*lastposition;
@@ -27,10 +27,11 @@ int	ft_ra(t_stack **a)
 	lastposition->next = position1;
 	position1->next = NULL;
 	write(1, "ra\n", 3);
+	(*moves)->ra++;
 	return (1);
 }
 
-int	ft_rb(t_stack **b)
+int	ft_rb(t_stack **b,  t_totalmoves **moves)
 {
 	t_stack	*position1;
 	t_stack	*lastposition;
@@ -45,5 +46,6 @@ int	ft_rb(t_stack **b)
 	lastposition->next = position1;
 	position1->next = NULL;
 	write(1, "rb\n", 3);
+	(*moves)->rb++;
 	return (1);
 }

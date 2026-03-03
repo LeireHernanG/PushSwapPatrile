@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stackorder_p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:38 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:35:17 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:55:15 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_pa(t_stack **a, t_stack **b)
+int	ft_pa(t_stack **a, t_stack **b, t_totalmoves **moves)
 {
 	t_stack	*temp;
 
@@ -26,10 +26,11 @@ int	ft_pa(t_stack **a, t_stack **b)
 		temp->next = NULL;
 	*a = temp;
 	write(1, "pa\n", 3);
+	(*moves)->pa++;
 	return (1);
 }
 
-int	ft_pb(t_stack **a, t_stack **b)
+int	ft_pb(t_stack **a, t_stack **b ,t_totalmoves **moves)
 {
 	t_stack	*temp;
 
@@ -43,5 +44,6 @@ int	ft_pb(t_stack **a, t_stack **b)
 		temp->next = NULL;
 	*b = temp;
 	write(1, "pb\n", 3);
+	(*moves)->pb++;
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 12:14:03 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/03 17:30:33 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,19 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 }					t_stack;
+typedef struct s_totalmoves
+{
+	int		sa;
+	int		sb;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+}					t_totalmoves;
 
 void				ft_lstadd_back_st(t_stack **lst, t_stack *new);
 t_stack				*ft_ini_stack(int num, int pos);
+t_totalmoves		*ft_ini_total_moves(void);
 t_stack				*ft_lstlast_st(t_stack *lst);
 int					ft_lstsize_st(t_stack *lst);
 void				ft_lstclear_st(t_stack **lst);
@@ -32,24 +42,22 @@ void				ft_lstclear_st(t_stack **lst);
 int					control_errors(int argc, char **argv);
 void				free_mat(char **matrix);
 t_stack				*fill_stack(int argc, char **argv);
-int					ft_adaptative(t_stack **a);
 float				compute_disorder(t_stack *stack);
-
-int					ft_sa(t_stack **a);
-int					ft_sb(t_stack **b);
+void 				ft_benchmark(int algorithm, t_totalmoves *totalmoves,float disorder);
+int					ft_sa(t_stack **a, t_totalmoves **moves);
+int					ft_sb(t_stack **b, t_totalmoves **moves);
 int					ft_ss(t_stack **a, t_stack **b);
-int					ft_pa(t_stack **a, t_stack **b);
-int					ft_pb(t_stack **a, t_stack **b);
-int					ft_ra(t_stack **a);
-int					ft_rb(t_stack **b);
+int					ft_pa(t_stack **a, t_stack **b ,t_totalmoves **moves);
+int					ft_pb(t_stack **a, t_stack **b ,t_totalmoves **moves);
+int					ft_ra(t_stack **a, t_totalmoves **moves);
+int					ft_rb(t_stack **b, t_totalmoves **moves);
 int					ft_rra(t_stack **a);
 int					ft_rrb(t_stack **b);
 int					ft_rrr(t_stack *a, t_stack *b);
 
-int					ft_buble_sort(t_stack **a);
-int					ft_radix(t_stack **a);
-void				ft_index(t_stack **a);
-int					ft_sqrt(int nb);
-int					ft_chunkorder(t_stack **a);
+int					ft_buble_sort(t_stack **a, t_totalmoves **totalmoves);
+int					ft_radix(t_stack **a, t_totalmoves **totalmoves);
+int					ft_chunkorder(t_stack **a, t_totalmoves **totalmoves);
+int					ft_adaptative(t_stack **a,t_totalmoves **totalmoves);
 
 #endif
