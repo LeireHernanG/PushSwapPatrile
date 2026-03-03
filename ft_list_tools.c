@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/02 12:13:04 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 12:05:42 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,19 @@ int	ft_lstsize_st(t_stack *lst)
 		size++;
 	}
 	return (size);
+}
+
+void	ft_lstclear_st(t_list **lst)
+{
+	t_list	*temp;
+
+	if (!lst)
+		return ;
+	temp = *lst;
+	while (temp != NULL)
+	{
+		temp = (*lst)->next;
+		free(*lst);
+		*lst = temp;
+	}
 }

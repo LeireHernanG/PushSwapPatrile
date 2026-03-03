@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/02 18:54:35 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/03 12:08:08 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void				ft_lstadd_back_st(t_stack **lst, t_stack *new);
 t_stack				*ft_ini_stack(int num, int pos);
 t_stack				*ft_lstlast_st(t_stack *lst);
 int					ft_lstsize_st(t_stack *lst);
+void				ft_lstclear_st(t_list **lst);
 
 int					control_errors(int argc, char **argv);
 void				free_mat(char **matrix);
@@ -48,7 +49,6 @@ int					ft_rrr(t_stack *a, t_stack *b);
 int					ft_buble_sort(t_stack **a);
 int					ft_radix(t_stack **a);
 void				ft_index(t_stack **a);
-int					ft_max_bits(int size);
 int					ft_sqrt(int nb);
 int					ft_chunkorder(t_stack **a);
 
