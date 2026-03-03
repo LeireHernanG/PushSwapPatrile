@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 12:08:08 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/03 12:14:03 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void				ft_lstadd_back_st(t_stack **lst, t_stack *new);
 t_stack				*ft_ini_stack(int num, int pos);
 t_stack				*ft_lstlast_st(t_stack *lst);
 int					ft_lstsize_st(t_stack *lst);
-void				ft_lstclear_st(t_list **lst);
+void				ft_lstclear_st(t_stack **lst);
 
 int					control_errors(int argc, char **argv);
 void				free_mat(char **matrix);
