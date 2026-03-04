@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:45:49 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/03 14:06:34 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/04 16:53:59 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ void	free_mat(char **matrix)
 
 static int	select_algorithm(char *argv)
 {
-	int	algorithm;
-
-	algorithm = 0;
 	if (!ft_strncmp(argv, "--simple", 8))
 		return (1);
 	else if (!ft_strncmp(argv, "--medium", 8))

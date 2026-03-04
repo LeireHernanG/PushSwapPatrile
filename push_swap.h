@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 18:26:53 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/04 12:00:13 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_totalmoves
 	int				pb;
 	int				ra;
 	int				rb;
+	int				rra;
 }					t_totalmoves;
 
 void				ft_lstadd_back_st(t_stack **lst, t_stack *new);
@@ -52,7 +53,7 @@ int					ft_pa(t_stack **a, t_stack **b, t_totalmoves **moves);
 int					ft_pb(t_stack **a, t_stack **b, t_totalmoves **moves);
 int					ft_ra(t_stack **a, t_totalmoves **moves);
 int					ft_rb(t_stack **b, t_totalmoves **moves);
-int					ft_rra(t_stack **a);
+int					ft_rra(t_stack **a, t_totalmoves **totalmoves);
 int					ft_rrb(t_stack **b);
 int					ft_rrr(t_stack *a, t_stack *b);
 
@@ -60,5 +61,7 @@ int					ft_buble_sort(t_stack **a, t_totalmoves **totalmoves);
 int					ft_radix(t_stack **a, t_totalmoves **totalmoves);
 int					ft_chunkorder(t_stack **a, t_totalmoves **totalmoves);
 int					ft_adaptative(t_stack **a, t_totalmoves **totalmoves);
+
+int					ft_simpleorder(t_stack **a, t_totalmoves **totalmoves);
 
 #endif

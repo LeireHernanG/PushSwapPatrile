@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stackorder_rr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:51 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/02/27 19:36:51 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/04 12:06:53 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_rra(t_stack **a)
+int	ft_rra(t_stack **a, t_totalmoves **totalmoves)
 {
 	t_stack	*lastposition;
 	t_stack	*new;
@@ -28,7 +28,8 @@ int	ft_rra(t_stack **a)
 	lastposition->next = *a;
 	*a = lastposition;
 	new->next = NULL;
-	write(1, "rra\n", 3);
+	(*totalmoves)->rra++;
+	write(1, "rra\n", 4);
 	return (1);
 }
 
@@ -51,11 +52,11 @@ int	ft_rrb(t_stack **b)
 	write(1, "rrb\n", 3);
 	return (1);
 }
-
-int	ft_rrr(t_stack *a, t_stack *b)
+/*
+int	ft_rrr(t_stack *a, t_stack *b,)
 {
-	ft_rra(&a);
+	ft_rra(&a, t_totalmoves);
 	ft_rrb(&b);
 	write(1, "rrr\n", 3);
 	return (1);
-}
+} */

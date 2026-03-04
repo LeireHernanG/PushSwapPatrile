@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 16:48:32 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/04 18:34:02 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,38 @@ static void	ft_index(t_stack **a)
 	}
 }
 
-static void	ft_sortbit(t_stack **a, t_stack **b, int bit,t_totalmoves **totalmoves)
+static void	ft_sortbit(t_stack **a, t_stack **b, int bit,
+		t_totalmoves **totalmoves)
 {
-	t_stack			*tmp;
-	int				i;
-	int				size;
+	t_stack	*tmp;
+	int		i;
+	int		size;
+	t_stack	*last;
+	//t_stack	*h;
+	int		one;
 
+	one = 0;
 	size = ft_lstsize_st(*a) - 1;
 	tmp = *a;
 	i = 0;
 	while (i++ <= size)
 	{
-		if (!((tmp->position >> bit) & 1))
+		one = 0;
+		last = (*a)->next;
+		while (last && !((last->position >> bit) & 1))
+		{
+			one++;
+			last = last->next;
+		}
+		if ((one == (ft_lstsize_st(*a) - 1) && (tmp->position >> bit) & 1))
+		{
+			ft_ra(a, totalmoves);
+			i = size + 2;
+		}
+		else if (!((tmp->position >> bit) & 1))
 			ft_pb(a, b, totalmoves);
 		else
-		{
-			if ((*a)->next)
-				ft_ra(a, totalmoves);
-		}
+			ft_ra(a, totalmoves);
 		tmp = *a;
 	}
 	while (*b)
@@ -92,6 +106,11 @@ int	ft_radix(t_stack **a, t_totalmoves **totalmoves)
 	b = NULL;
 	bitmax = ft_max_bits(ft_lstsize_st(*a) - 1);
 	ft_index(a);
+	if ( ft_lstsize_st(*a) < 10)
+	{
+		ft_simpleorder(a , totalmoves);
+		return(0);
+	}
 	while (bit <= bitmax)
 	{
 		ft_sortbit(a, &b, bit, totalmoves);
