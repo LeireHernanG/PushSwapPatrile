@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/04 18:34:02 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/04 20:30:41 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_index(t_stack **a)
 {
 	t_stack	*tmp;
-	t_stack	*tmp2;
+	t_stack	*tmpnext;
 	int		max;
 
 	max = ft_lstsize_st(*a) - 1;
@@ -30,53 +30,44 @@ static void	ft_index(t_stack **a)
 		tmp = *a;
 		while (tmp->position != 0)
 			tmp = tmp->next;
-		tmp2 = tmp->next;
-		while (tmp2)
+		tmpnext = tmp->next;
+		while (tmpnext)
 		{
-			if (tmp->content < tmp2->content && tmp2->position == 0)
-				tmp = tmp2;
-			tmp2 = tmp2->next;
+			if (tmp->content < tmpnext->content && tmpnext->position == 0)
+				tmp = tmpnext;
+			tmpnext = tmpnext->next;
 		}
 		tmp->position = max--;
 	}
 }
 
-static void	ft_sortbit(t_stack **a, t_stack **b, int bit,
-		t_totalmoves **totalmoves)
+static void	ft_sortbit(t_stack **a, t_stack **b, int bit, t_totalmoves **m)
 {
 	t_stack	*tmp;
+	t_stack	*last;
 	int		i;
 	int		size;
-	t_stack	*last;
-	//t_stack	*h;
-	int		one;
+	int		zero;
 
-	one = 0;
+	zero = 0;
 	size = ft_lstsize_st(*a) - 1;
-	tmp = *a;
 	i = 0;
 	while (i++ <= size)
 	{
-		one = 0;
-		last = (*a)->next;
-		while (last && !((last->position >> bit) & 1))
-		{
-			one++;
-			last = last->next;
-		}
-		if ((one == (ft_lstsize_st(*a) - 1) && (tmp->position >> bit) & 1))
-		{
-			ft_ra(a, totalmoves);
-			i = size + 2;
-		}
-		else if (!((tmp->position >> bit) & 1))
-			ft_pb(a, b, totalmoves);
-		else
-			ft_ra(a, totalmoves);
 		tmp = *a;
+		zero = 0;
+		last = (*a)->next;
+		while (last && !((last->position >> bit) & 1) && ++zero != 0)
+			last = last->next;
+		if ((zero == (ft_lstsize_st(*a) - 1) && (tmp->position >> bit) & 1))
+			i = size + 2;
+		if (((tmp->position >> bit) & 1))
+			ft_ra(a, m);
+		else
+			ft_pb(a, b, m);
 	}
 	while (*b)
-		ft_pa(a, b, totalmoves);
+		ft_pa(a, b, m);
 }
 
 static int	ft_max_bits(int size)
@@ -106,10 +97,10 @@ int	ft_radix(t_stack **a, t_totalmoves **totalmoves)
 	b = NULL;
 	bitmax = ft_max_bits(ft_lstsize_st(*a) - 1);
 	ft_index(a);
-	if ( ft_lstsize_st(*a) < 10)
+	if (ft_lstsize_st(*a) < 10)
 	{
-		ft_simpleorder(a , totalmoves);
-		return(0);
+		ft_simpleorder(a, totalmoves);
+		return (0);
 	}
 	while (bit <= bitmax)
 	{
