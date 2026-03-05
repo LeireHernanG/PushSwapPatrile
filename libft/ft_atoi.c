@@ -6,17 +6,17 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 13:14:53 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/01/22 16:17:03 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 18:12:22 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int	num;
-	int	i;
-	int	sign;
+	long	num;
+	int		i;
+	int		sign;
 
 	i = 0;
 	num = 0;
@@ -39,7 +39,7 @@ int	ft_atoi(const char *nptr)
 /*
 int	main(void)
 {
-	char n[] = "   +123j4";
+	char	n[] = "   +123j4";
 
 	printf("%d\n", ft_atoi(n));
 	printf("%d", atoi(n));

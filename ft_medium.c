@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 21:08:52 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/05 14:27:48 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:29:49 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ static void	ft_is_top(int max, t_stack **a, t_stack **b, t_totalmoves **moves)
 		ft_pb(a, b, moves);
 	}
 }
+
 void	ft_chunkorder(t_stack **a, t_totalmoves **totalmoves)
 {
 	t_stack	*b;

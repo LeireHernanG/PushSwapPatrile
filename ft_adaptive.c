@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_disorder_index.c                                :+:      :+:    :+:   */
+/*   ft_adaptive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 11:42:33 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/05 15:27:14 by pmieres-         ###   ########.fr       */
+/*   Created: 2026/02/27 18:41:44 by lhernan-          #+#    #+#             */
+/*   Updated: 2026/03/05 15:43:14 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	compute_disorder(t_stack *stack)
+int	ft_adaptive(t_stack **a, t_totalmoves **totalmoves)
 {
-	float	mistakes;
-	float	total_pairs;
-	t_stack	*nod;
-	t_stack	*list;
+	float	disorder;
 
-	if (!stack)
-		return (0);
-	mistakes = 0;
-	total_pairs = 0;
-	list = stack;
-	while (list)
-	{
-		nod = list->next;
-		while (nod)
-		{
-			total_pairs += 1;
-			if (list->content > nod->content)
-				mistakes += 1;
-			nod = nod->next;
-		}
-		list = list->next;
-	}
-	return (mistakes / total_pairs);
+	disorder = compute_disorder(*a);
+	if (disorder < 0.2)
+		ft_simpleorder(a, totalmoves);
+	else if (0.2 <= disorder && disorder < 0.5)
+		ft_chunkorder(a, totalmoves);
+	else if (disorder >= 0.5)
+		ft_radix(a, totalmoves);
+	return (0);
 }
-

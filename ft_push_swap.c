@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:40:13 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/04 11:04:37 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:55:19 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_selection(int algoritm, t_stack **a, t_totalmoves **totalmoves)
 	else if (algoritm == 3 || algoritm == -3)
 		ft_radix(a, totalmoves);
 	else
-		ft_adaptative(a, totalmoves);
+		ft_adaptive(a, totalmoves);
 	return (0);
 }
 
@@ -32,7 +32,6 @@ int	main(int argc, char **argv)
 	t_stack			*stacka;
 	t_totalmoves	*totalmoves;
 	float			disorder;
-	t_stack			*h;
 
 	stacka = NULL;
 	totalmoves = ft_ini_total_moves();
@@ -45,15 +44,6 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	disorder = compute_disorder(stacka);
 	ft_selection(algorithm, &stacka, &totalmoves);
-	// ft_simpleorder(&stacka, &totalmoves);
-	// ft_buble_sort(&stacka, &totalmoves);
-	// ft_chunkorder(&stacka, &totalmoves);
-	h = stacka;
-	while (h)
-	{
-		printf("%d\n", h->content);
-		h = h->next;
-	}
 	if (algorithm < 0)
 		ft_benchmark(algorithm, totalmoves, disorder);
 	return (0);
