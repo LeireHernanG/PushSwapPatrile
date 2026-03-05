@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/05 14:27:34 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:53:49 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <limits.h>
 # include <stdio.h>
 
 typedef struct s_stack
@@ -60,10 +61,9 @@ int					ft_rra(t_stack **a, t_totalmoves **totalmoves);
 int					ft_rrb(t_stack **b, t_totalmoves **totalmoves);
 int					ft_rrr(t_stack *a, t_stack *b);
 
-int					ft_buble_sort(t_stack **a, t_totalmoves **totalmoves);
 int					ft_radix(t_stack **a, t_totalmoves **totalmoves);
 void				ft_chunkorder(t_stack **a, t_totalmoves **totalmoves);
-int					ft_adaptative(t_stack **a, t_totalmoves **totalmoves);
+int					ft_adaptive(t_stack **a, t_totalmoves **totalmoves);
 
 int					ft_simpleorder(t_stack **a, t_totalmoves **totalmoves);
 
