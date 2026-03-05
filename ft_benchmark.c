@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:21:00 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/05 18:07:55 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 18:34:17 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,11 @@ t_totalmoves	*ft_ini_total_moves(void)
 	node1->rra = 0;
 	return (node1);
 }
-void	ft_benchmark(int algorithm, t_totalmoves *totalmoves, float disorder)
+
+void	ft_benchmark(int algorithm, t_totalmoves *m, float disorder)
 {
-	float e;
-	int r;
-	e = disorder * 100;
-	r = (int)(disorder * 100000) % 100;
-	printf("[bench] disorder: %d.%d%%", (int)e, r);
+	printf("[bench] disorder: %d.%d%%", (int)(disorder * 100), (int)(disorder
+			* 100000) % 100);
 	if (algorithm == -1)
 		printf("\n[bench] strategy: Simple / O(n^2)");
 	else if (algorithm == -2)
@@ -42,12 +40,19 @@ void	ft_benchmark(int algorithm, t_totalmoves *totalmoves, float disorder)
 	else if (algorithm == -3)
 		printf("\n[bench] strategy: Complex / O(n log n)");
 	else if (algorithm == -4)
-		printf("\n[bench] strategy: Adaptive");
-	printf("\n[bench] total_ops: %d", totalmoves->sa + totalmoves->sb
-		+ totalmoves->pa + totalmoves->pb + totalmoves->ra + totalmoves->rb
-		+ totalmoves->rra + totalmoves->rrb);
-	printf("\n[bench] sa :  %d  sb :  %d  pa :  %d  pb :  %d", totalmoves->sa,
-		totalmoves->sb, totalmoves->pa, totalmoves->pb);
-	printf("\n[bench] ra :  %d  rb :  %d   rra : %d   rrb : %d", totalmoves->ra,
-		totalmoves->rb, totalmoves->rra, totalmoves->rrb);
+	{
+		printf("\n[bench] strategy: Adaptive ");
+		if (disorder < 0.2)
+			printf("/ O(n^2)");
+		else if (0.2 <= disorder && disorder < 0.5)
+			printf("/ O(n√n)");
+		else if (disorder >= 0.5)
+			printf("O(n log n)");
+	}
+	printf("\n[bench] total_ops: %d", m->sa + m->sb + m->pa + m->pb + m->ra
+		+ m->rb + m->rra + m->rrb);
+	printf("\n[bench] sa :  %d  sb :  %d  pa :  %d  pb :  %d", m->sa, m->sb,
+		m->pa, m->pb);
+	printf("\n[bench] ra :  %d  rb :  %d   rra : %d   rrb : %d", m->ra, m->rb,
+		m->rra, m->rrb);
 }
