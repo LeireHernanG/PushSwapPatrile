@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:51 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/04 12:06:53 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 12:44:19 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_rra(t_stack **a, t_totalmoves **totalmoves)
 	return (1);
 }
 
-int	ft_rrb(t_stack **b)
+int	ft_rrb(t_stack **b, t_totalmoves **totalmoves)
 {
 	t_stack	*lastposition;
 	t_stack	*new;
@@ -49,7 +49,8 @@ int	ft_rrb(t_stack **b)
 	lastposition->next = *b;
 	*b = lastposition;
 	new->next = NULL;
-	write(1, "rrb\n", 3);
+	(*totalmoves)->rrb++;
+	write(1, "rrb\n", 4);
 	return (1);
 }
 /*

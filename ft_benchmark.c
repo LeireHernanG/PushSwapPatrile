@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:21:00 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/04 12:01:36 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 13:47:19 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void	ft_benchmark(int algorithm, t_totalmoves *totalmoves, float disorder)
 	else if (algorithm == -4)
 		printf("\n[bench] strategy: Adaptive");
 	printf("\n[bench] total_ops: %d", totalmoves->sa + totalmoves->sb
-		+ totalmoves->pa + totalmoves->pb + totalmoves->ra + totalmoves->rb + totalmoves->rra);
+		+ totalmoves->pa + totalmoves->pb + totalmoves->ra + totalmoves->rb
+		+ totalmoves->rra + totalmoves->rrb);
 	printf("\n[bench] sa :  %d  sb :  %d  pa :  %d  pb :  %d", totalmoves->sa,
 		totalmoves->sb, totalmoves->pa, totalmoves->pb);
-	printf("\n[bench] ra :  %d  rb :  %d   rra : %d", totalmoves->ra, totalmoves->rb, totalmoves->rra);
+	printf("\n[bench] ra :  %d  rb :  %d   rra : %d   rrb : %d", totalmoves->ra,
+		totalmoves->rb, totalmoves->rra, totalmoves->rrb);
 }

@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/04 20:30:41 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:29:58 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,7 @@ static void	ft_index(t_stack **a)
 	int		max;
 
 	max = ft_lstsize_st(*a) - 1;
-	tmp = *a;
-	while (tmp)
-	{
-		tmp->position = 0;
-		tmp = tmp->next;
-	}
+	ft_set_zero(a);
 	while (max >= 0)
 	{
 		tmp = *a;
