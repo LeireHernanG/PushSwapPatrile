@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_radix.c                                         :+:      :+:    :+:   */
+/*   ft_complex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:32:57 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/05 14:29:58 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:59:43 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,6 @@ int	ft_radix(t_stack **a, t_totalmoves **totalmoves)
 	b = NULL;
 	bitmax = ft_max_bits(ft_lstsize_st(*a) - 1);
 	ft_index(a);
-	if (ft_lstsize_st(*a) < 10)
-	{
-		ft_simpleorder(a, totalmoves);
-		return (0);
-	}
 	while (bit <= bitmax)
 	{
 		ft_sortbit(a, &b, bit, totalmoves);

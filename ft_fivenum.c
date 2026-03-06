@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_adaptive.c                                      :+:      :+:    :+:   */
+/*   ft_fivenum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/27 18:41:44 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/06 12:05:33 by pmieres-         ###   ########.fr       */
+/*   Created: 2026/03/06 12:14:07 by pmieres-          #+#    #+#             */
+/*   Updated: 2026/03/06 13:18:43 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_adaptive(t_stack **a, t_totalmoves **totalmoves)
+int	ft_fivenum(t_stack **a, t_totalmoves **totalmoves)
 {
-	float	disorder;
+	int		size;
 
-	disorder = compute_disorder(*a);
-	if (ft_lstsize_st(*a) < 10)
+	size = ft_lstsize_st(*a);
+	if (size == 2)
+		ft_sa(a, totalmoves);
+	else if (size == 3)
 	{
-		ft_simpleorder(a, totalmoves);
-		return (0);
+		if ((*a)->content > (*a)->next->content
+			&& (*a)->content > (*a)->next->next->content)
+			ft_ra(a, totalmoves);
+		else if ((*a)->content > (*a)->next->content)
+			ft_sa(a, totalmoves);
+		else
+			ft_rra(a, totalmoves);
+		if ((*a)->content > (*a)->next->content)
+			ft_sa(a, totalmoves);
 	}
-	if (disorder < 0.2)
+	else
 		ft_simpleorder(a, totalmoves);
-	else if (0.2 <= disorder && disorder < 0.5)
-		ft_chunkorder(a, totalmoves);
-	else if (disorder >= 0.5)
-		ft_radix(a, totalmoves);
 	return (0);
 }
+

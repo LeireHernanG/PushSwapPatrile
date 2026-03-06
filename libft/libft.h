@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 11:22:56 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/06 10:15:04 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:34:12 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-int		ft_printf(char const *str, ...);
-int		ft_printf_char(char c);
-int		ft_printf_str(char *str);
+int		ft_printf(int fd, char const *str, ...);
+int		ft_printf_char(char c, int fd);
+int		ft_printf_str(char *str, int fd);
 char	*ft_itoa_hex(unsigned long n);
-int		ft_printf_point(void *p);
-int		ft_printf_hex(unsigned int n, char x);
-int		ft_printf_d(int n);
-int		ft_printf_u(unsigned int n);
+int		ft_printf_point(void *p, int fd);
+int		ft_printf_hex(unsigned int n, char x, int fd);
+int		ft_printf_d(int n, int fd);
+int		ft_printf_u(unsigned int n, int fd);
 
 
 #endif  

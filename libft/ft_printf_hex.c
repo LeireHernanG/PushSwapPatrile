@@ -6,13 +6,13 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 12:39:04 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/06 10:14:24 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:21:26 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf_hex(unsigned int n, char x)
+int	ft_printf_hex(unsigned int n, char x, int fd)
 {
 	char	*hex;
 	int		nchar;
@@ -30,7 +30,7 @@ int	ft_printf_hex(unsigned int n, char x)
 			i++;
 		}
 	}
-	ft_putstr_fd(hex, 1);
+	ft_putstr_fd(hex, fd);
 	nchar = ft_strlen(hex);
 	free(hex);
 	return (nchar);

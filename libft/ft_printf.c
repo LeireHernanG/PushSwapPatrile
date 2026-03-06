@@ -6,31 +6,31 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:01:34 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/06 10:14:51 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:35:27 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_type(va_list arg, char c)
+static int	ft_type(va_list arg, char c, int fd)
 {
 	int	num;
 
 	num = 0;
 	if (c == 'c')
-		return (ft_printf_char(va_arg(arg, int)));
+		return (ft_printf_char(va_arg(arg, int), fd));
 	else if (c == 's')
-		return (ft_printf_str(va_arg(arg, char *)));
+		return (ft_printf_str(va_arg(arg, char *), fd));
 	else if (c == 'p')
-		return (ft_printf_point(va_arg(arg, void *)));
+		return (ft_printf_point(va_arg(arg, void *), fd));
 	else if (c == 'd')
-		return (ft_printf_d(va_arg(arg, int)));
+		return (ft_printf_d(va_arg(arg, int), fd));
 	else if (c == 'i')
-		return (ft_printf_d(va_arg(arg, int)));
+		return (ft_printf_d(va_arg(arg, int), fd));
 	else if (c == 'u')
-		return (ft_printf_u(va_arg(arg, unsigned int)));
+		return (ft_printf_u(va_arg(arg, unsigned int), fd));
 	else if (c == 'x' || c == 'X')
-		return (ft_printf_hex(va_arg(arg, unsigned int), c));
+		return (ft_printf_hex(va_arg(arg, unsigned int), c, fd));
 	else if (c == '%')
 	{
 		ft_putchar_fd(c, 1);
@@ -41,13 +41,13 @@ static int	ft_type(va_list arg, char c)
 	return (2);
 }
 
-static int	write_sum(char c)
+static int	write_sum(char c, int fd)
 {
-	ft_putchar_fd(c, 1);
+	ft_putchar_fd(c, fd);
 	return (1);
 }
 
-int	ft_printf(char const *str, ...)
+int	ft_printf(int fd, char const *str, ...)
 {
 	va_list	arg;
 	char	*param;
@@ -64,13 +64,13 @@ int	ft_printf(char const *str, ...)
 	{
 		if (&str[i] == param && str[i + 1] != '\0')
 		{
-			num += ft_type(arg, str[++i]);
+			num += ft_type(arg, str[++i], fd);
 			param = ft_strchr(&str[++i], '%');
 		}
 		else if (&str[i] == param && str[i + 1] == '\0')
 			return (-1);
 		else
-			num += write_sum(str[i++]);
+			num += write_sum(str[i++], fd);
 	}
 	va_end(arg);
 	return (num);

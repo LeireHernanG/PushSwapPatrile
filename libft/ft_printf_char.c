@@ -6,14 +6,14 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 12:14:06 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/06 10:14:14 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:19:28 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_printf_char(char c)
+int	ft_printf_char(char c, int fd)
 {
-	ft_putchar_fd((unsigned char)c, 1);
+	ft_putchar_fd((unsigned char)c, fd);
 	return (1);
 }
