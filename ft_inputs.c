@@ -6,12 +6,11 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:45:49 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/05 15:52:01 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:17:54 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	select_algorithm(char *argv)
 {

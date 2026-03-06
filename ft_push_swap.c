@@ -6,12 +6,11 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:40:13 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/05 15:55:19 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:18:15 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	ft_selection(int algoritm, t_stack **a, t_totalmoves **totalmoves)
 {

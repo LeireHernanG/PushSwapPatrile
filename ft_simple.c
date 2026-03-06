@@ -6,12 +6,11 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 10:08:51 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/05 15:39:11 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:18:20 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
 static int	is_max(t_stack *a)
 {

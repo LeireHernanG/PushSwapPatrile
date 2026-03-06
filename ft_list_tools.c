@@ -6,12 +6,11 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:50:47 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 12:16:36 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:18:04 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
 void	ft_lstadd_back_st(t_stack **lst, t_stack *new)
 {
