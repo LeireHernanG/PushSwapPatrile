@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 10:08:51 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/09 11:26:54 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 11:32:35 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,10 +192,9 @@ int	ft_simpleorder(t_stack **a, t_totalmoves **totalmoves)
 	b = NULL;
 	
 	while (*a)
-		ft_maxorder(a, &b, totalmoves);
+		ft_pb(a, &b, totalmoves);
 	while (b)
-		ft_pa(a, &b, totalmoves);
-	stackb = *a;
+		ft_maxorder(&b, a, totalmoves);
 	while (stackb)
 	{
 		printf("%d\n", stackb->content);
