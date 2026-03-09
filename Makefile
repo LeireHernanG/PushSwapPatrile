@@ -1,12 +1,10 @@
 NAME = push_swap
 
-CC = -cc -g3
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = ft_adaptive.c ft_simple.c ft_disorder_index.c ft_list_tools.c \
-      ft_medium.c ft_push_swap.c ft_complex.c ft_stackorder_p.c \
-      ft_stackorder_r.c ft_stackorder_rr.c ft_stackorder_s.c ft_inputs.c\
-	  ft_benchmark.c ft_aux_fun.c ft_fivenum.c  ft_simplen.c\
+SRC = ft_aux_fun.c ft_complex.c ft_fivenum.c ft_list_tools.c ft_push_swap.c ft_simplen.c ft_stackorder_r.c ft_stackorder_s.c \
+ft_adaptive.c ft_benchmark.c ft_disorder_index.c ft_inputs.c ft_medium.c ft_simple.c ft_stackorder_p.c ft_stackorder_rr.c \
 
 OBJ = $(SRC:.c=.o)
 

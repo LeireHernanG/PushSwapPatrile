@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:40:13 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/09 13:04:16 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:01:29 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 	t_totalmoves	*totalmoves;
 	float			disorder;
 
-	// t_stack			*stackb;
 	stacka = NULL;
 	if (argc < 1)
 		return (write(2, "Error\n", 6), 1);
@@ -62,13 +61,6 @@ int	main(int argc, char **argv)
 	totalmoves = ft_ini_total_moves();
 	disorder = compute_disorder(stacka);
 	ft_selection(algorithm, &stacka, &totalmoves);
-	/* stackb = stacka;
-	printf("\n\n");
-	while (stackb)
-	{
-		printf("%d\n", stackb->content);
-		stackb = stackb->next;
-	}  */
 	if (algorithm < 0)
 		ft_benchmark(2, algorithm, totalmoves, disorder);
 	ft_lstclear_st(&stacka);

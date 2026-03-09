@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_si.c                                            :+:      :+:    :+:   */
+/*   ft_simple.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 11:50:03 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/09 12:56:46 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:01:53 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int	ft_simple(t_stack **a, t_totalmoves **totalmoves)
 {
-	t_stack	*stackb;
 	int		i;
 	int		len;
 	int		sa;
@@ -38,12 +37,6 @@ int	ft_simple(t_stack **a, t_totalmoves **totalmoves)
 			i++;
 		}
 		ft_ra(a, totalmoves);
-	}
-	stackb = *a;
-	while (stackb)
-	{
-		printf("%d ", stackb->content);
-		stackb = stackb->next;
 	}
 	return (0);
 }
