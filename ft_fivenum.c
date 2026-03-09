@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fivenum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 12:14:07 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/09 12:44:02 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/09 16:25:41 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	ft_fivenum(t_stack **a, t_totalmoves **totalmoves)
 			ft_sa(a, totalmoves);
 	}
 	else
-		ft_simple(a, totalmoves);
+		ft_simpleorder(a, totalmoves);
 	return (0);
 }
