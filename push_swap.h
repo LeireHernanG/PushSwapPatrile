@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 16:38:55 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/09 12:42:40 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/09 16:33:24 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ int					ft_rrr(t_stack *a, t_stack *b);
 int					ft_radix(t_stack **a, t_totalmoves **totalmoves);
 void				ft_chunkorder(t_stack **a, t_totalmoves **totalmoves);
 int					ft_adaptive(t_stack **a, t_totalmoves **totalmoves);
-int					ft_simpleorder2(t_stack **a, t_totalmoves **totalmoves);
 int					ft_simpleorder(t_stack **a, t_totalmoves **totalmoves);
 int					ft_fivenum(t_stack **a, t_totalmoves **totalmoves);
-int					ft_buble_sort(t_stack **a, t_totalmoves **totalmoves);
 int					ft_simple(t_stack **a, t_totalmoves **totalmoves);
 
 #endif
