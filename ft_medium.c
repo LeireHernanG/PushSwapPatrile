@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 21:08:52 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/06 11:58:36 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 16:40:29 by pmieres-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,13 @@ static void	max_to_b(t_stack **a, t_stack **b, t_totalmoves **moves)
 	}
 	while (max != *b)
 	{
-		rrb++;
-		ft_rb(b, moves);
+		if ((*b)->content < (*b)->next->content)
+			ft_sb(b, moves);
+		else
+		{
+			rrb++;
+			ft_rb(b, moves);
+		}
 	}
 	ft_pa(a, b, moves);
 	while (rrb > 0 && (*b)->next)
@@ -142,7 +147,9 @@ void	ft_chunkorder(t_stack **a, t_totalmoves **totalmoves)
 		while (size-- > 0)
 			ft_is_top(max, a, &b, totalmoves);
 	}
-	while (*a)
-		ft_pb(a, &b, totalmoves);
+	if (n <= 3)
+		ft_fivenum(a, totalmoves);
+	else
+		ft_simple(a, totalmoves);
 	order_last(a, &b, n, totalmoves);
 }
