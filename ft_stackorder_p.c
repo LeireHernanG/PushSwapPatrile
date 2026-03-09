@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:38 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 16:55:15 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:30:44 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_pa(t_stack **a, t_stack **b, t_totalmoves **moves)
 	return (1);
 }
 
-int	ft_pb(t_stack **a, t_stack **b ,t_totalmoves **moves)
+int	ft_pb(t_stack **a, t_stack **b, t_totalmoves **moves)
 {
 	t_stack	*temp;
 

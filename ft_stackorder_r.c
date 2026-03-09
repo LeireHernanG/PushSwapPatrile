@@ -6,7 +6,7 @@
 /*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:49 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/03 16:54:53 by lhernan-         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:30:06 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_ra(t_stack **a, t_totalmoves **moves)
 	return (1);
 }
 
-int	ft_rb(t_stack **b,  t_totalmoves **moves)
+int	ft_rb(t_stack **b, t_totalmoves **moves)
 {
 	t_stack	*position1;
 	t_stack	*lastposition;

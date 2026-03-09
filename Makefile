@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror -Wextra
 SRC = ft_adaptive.c ft_simple.c ft_disorder_index.c ft_list_tools.c \
       ft_medium.c ft_push_swap.c ft_complex.c ft_stackorder_p.c \
       ft_stackorder_r.c ft_stackorder_rr.c ft_stackorder_s.c ft_inputs.c\
-	  ft_benchmark.c ft_aux_fun.c ft_fivenum.c\
+	  ft_benchmark.c ft_aux_fun.c ft_fivenum.c  ft_simplen.c\
 
 OBJ = $(SRC:.c=.o)
 

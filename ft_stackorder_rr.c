@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stackorder_rr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:41:51 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/05 12:44:19 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 13:05:13 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,3 @@ int	ft_rrb(t_stack **b, t_totalmoves **totalmoves)
 	write(1, "rrb\n", 4);
 	return (1);
 }
-/*
-int	ft_rrr(t_stack *a, t_stack *b,)
-{
-	ft_rra(&a, t_totalmoves);
-	ft_rrb(&b);
-	write(1, "rrr\n", 3);
-	return (1);
-} */

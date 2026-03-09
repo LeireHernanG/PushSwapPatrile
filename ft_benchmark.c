@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:21:00 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/06 11:47:30 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:30:26 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_totalmoves	*ft_ini_total_moves(void)
 
 void	ft_benchmark(int fd, int algorithm, t_totalmoves *m, float disorder)
 {
-	ft_printf(fd, "[bench] disorder: %d.%d%%", (int)(disorder * 100), (int)(disorder
-			* 100000) % 100);
+	ft_printf(fd, "[bench] disorder: %d.%d%%", (int)(disorder * 100),
+		(int)(disorder * 100000) % 100);
 	if (algorithm == -1 || algorithm == 1)
 		ft_printf(fd, "\n[bench] strategy: Simple / O(n^2)");
 	else if (algorithm == -2 || algorithm == 2)
@@ -53,6 +53,6 @@ void	ft_benchmark(int fd, int algorithm, t_totalmoves *m, float disorder)
 		+ m->ra + m->rb + m->rra + m->rrb);
 	ft_printf(fd, "\n[bench] sa :  %d  sb :  %d  pa :  %d  pb :  %d", m->sa,
 		m->sb, m->pa, m->pb);
-	ft_printf(fd, "\n[bench] ra :  %d  rb :  %d   rra : %d   rrb : %d \n", m->ra,
-		m->rb, m->rra, m->rrb);
+	ft_printf(fd, "\n[bench] ra :  %d  rb :  %d   rra : %d   rrb : %d \n",
+		m->ra, m->rb, m->rra, m->rrb);
 }

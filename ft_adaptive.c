@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_adaptive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 18:41:44 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/06 12:05:33 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 13:01:01 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_adaptive(t_stack **a, t_totalmoves **totalmoves)
 	float	disorder;
 
 	disorder = compute_disorder(*a);
-	if (ft_lstsize_st(*a) < 10)
+	if (ft_lstsize_st(*a) < 5)
 	{
-		ft_simpleorder(a, totalmoves);
+		ft_fivenum(a, totalmoves);
 		return (0);
 	}
 	if (disorder < 0.2)

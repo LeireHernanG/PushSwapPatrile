@@ -6,7 +6,7 @@
 /*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:42:33 by lhernan-          #+#    #+#             */
-/*   Updated: 2026/03/06 11:58:47 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:31:31 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ float	compute_disorder(t_stack *stack)
 	}
 	return (mistakes / total_pairs);
 }
-

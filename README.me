@@ -1,0 +1,13 @@
+ARG=$(shuf -i 1-200 -n 50 | tr '\n' ' ')
+./push_swap $ARG | tee ops.txt | ./checker_linux $ARG
+echo "Operaciones usadas:" $(wc -l < ops.txt)
+
+
+# Generas la lista una vez
+ARG=$(shuf -i 1-200 -n 50 | tr '\n' ' ')
+echo $ARG > input.txt
+
+# Cada prueba usa la misma lista
+ARG=$(cat input.txt)
+./push_swap $ARG | tee ops.txt | ./checker_linux $ARG
+echo "Operaciones usadas:" $(wc -l < ops.txt)
