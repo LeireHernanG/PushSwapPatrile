@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmieres- <pmieres-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lhernan- <lhernan-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 21:08:52 by pmieres-          #+#    #+#             */
-/*   Updated: 2026/03/09 16:40:29 by pmieres-         ###   ########.fr       */
+/*   Updated: 2026/03/09 18:27:10 by lhernan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void	ft_chunkorder(t_stack **a, t_totalmoves **totalmoves)
 			ft_is_top(max, a, &b, totalmoves);
 	}
 	if (n <= 3)
-		ft_fivenum(a, totalmoves);
+		ft_orderthree(a, totalmoves);
 	else
 		ft_simple(a, totalmoves);
 	order_last(a, &b, n, totalmoves);

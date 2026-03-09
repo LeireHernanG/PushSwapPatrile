@@ -60,7 +60,7 @@ Ejecuta make para compilar el programa push_swap.c Esto generará el ejecutable.
 | `ft_chunkorder` | Ordena los elementos utilizando una estrategia basada en **chunks**. |
 | `ft_adaptive` | Selecciona dinámicamente el algoritmo de ordenación según el nivel de desorden. |
 | `ft_simpleorder` | Algoritmo básico de ordenación. |
-| `ft_fivenum` | Algoritmo optimizado para ordenar **cinco números**. |
+| `ft_orderthree` | Algoritmo optimizado para ordenar **cinco números**. |
 | `ft_simple` | Método de ordenación simple para pilas pequeñas. |
 ### Ejecución
 
@@ -86,48 +86,57 @@ Los números son la lista inicial del stack a (el primero es la cima).
 - ./push_swap [args] | ./checker [args] (debe imprimir OK si ordena correctamente).
 
 #### Ejemplos de uso
+A continuación se detallan los comandos principales para ejecutar el programa en distintos escenarios, desde ordenaciones simples hasta pruebas de rendimiento.
 
-- Ordenación básica:
-    
-    text$ ./push_swap 2 1 3 6 5 8
+- Ordenación básica
 
-    sa
-    pb
-    ra
-    pb
-    ra
-    pb
-    pa
-    pa
-    pa
+    Para una lista pequeña de enteros, el programa devuelve la secuencia de instrucciones optimizada:
+Bash
 
-- Con benchmark:
+$ ./push_swap 2 1 3 6 5 8
+sa
+pb
+ra
+pb
+ra
+pb
+pa
+pa
+pa
 
-    text$ ARG="4 67 3 87 23"; 
-    
-    ./push_swap --bench --adaptive $ARG 2> bench.txt | ./checker $ARG
+2. Benchmarking y Análisis
 
-    OK
+Utiliza los flags --bench y --adaptive para obtener métricas detalladas sobre la eficiencia del algoritmo y verificar la ordenación con el checker.
 
-    $ cat bench.txt
+# Definir argumentos y ejecutar con métricas
+$ ARG="4 67 3 87 23"
+$ ./push_swap --bench --adaptive $ARG 2> bench.txt | ./checker $ARG
+OK
 
-    [bench] disorder: 40.00%
-    [bench] strategy: Adaptive / O(n√n)
-    [bench] total_ops: 13
-    [bench] sa :  0  sb :  0  pa :  5  pb :  5
-    [bench] ra :  2  rb :  1   rra : 0   rrb : 0
-    
-- Manejo de errores:
-    
-    text$ ./push_swap --adaptive 0 one 2 3
-    
-    Error
+# Ver resultados del benchmark
+$ cat bench.txt
+[bench] disorder: 40.00%
+[bench] strategy: Adaptive / O(n√n)
+[bench] total_ops: 13
+[bench] sa : 0  sb : 0  pa : 5  pb : 5
+[bench] ra : 2  rb : 1  rra : 0  rrb : 0
 
-- Para grandes inputs:
+3. Manejo de Errores
 
-    text$ shuf -i 0-9999 -n 500 > args.txt ; 
-    
-    ./push_swap $(cat args.txt)
+El programa detecta automáticamente entradas inválidas (caracteres no numéricos, duplicados o desbordamientos) y muestra un mensaje estandarizado:
+Bash
+
+$ ./push_swap --adaptive 0 one 2 3
+Error
+
+4. Pruebas con Grandes Volúmenes de Datos
+
+Para estresar el algoritmo con una cantidad masiva de datos (por ejemplo, 500 números aleatorios entre 0 y 9999):
+Bash
+
+# Generar lista aleatoria y ejecutar
+$ shuf -i 0-9999 -n 500 > args.txt
+$ ./push_swap $(cat args.txt)
 
 ## Algoritmos
 Implementamos cuatro estrategias como requerido, justificadas por su complejidad y adaptabilidad al modelo de Push_swap.
